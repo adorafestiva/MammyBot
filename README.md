@@ -1,124 +1,96 @@
-plugAPI
-=======
+basicBot
+========
 
-[![NPM](https://nodei.co/npm/plugapi.png?downloads=true)](https://nodei.co/npm/plugapi/)
+A not so basic bot for plug.dj 
 
-A generic API for creating plug.dj bots.
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Yemasthui/basicBot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![facebook group](http://i.bnzi.uk/97dW.svg)](https://facebook.com/groups/basicBot) [![twitter](http://i.bnzi.uk/4KEn.svg)](https://twitter.com/bscBt)
 
-Originally by [Chris Vickery](https://github.com/chrisinajar), now maintained by [TAT](https://github.com/TATDK) and [The plug³ Team](https://github.com/plugCubed).
+Stay updated on **basicBot**'s development by following the project on Twitter [@bscBt](http://twitter.com/bscBt)
 
-**NOTE:** Currently not supporting facebook login.
+Created by [Yemasthui](https://github.com/Yemasthui) but now maintained by [Benzi](https://github.com/Benzi).
 
-## How to use
-Run the following:
+(You can email me via hi@bnzi.uk or send me a message on [Gitter](https://gitter.im/Benzi) if you have any queries about the bot)
 
-```npm install plugapi --production```
+!!!TO CUSTOMIZE: USE [THIS REPOSITORY](https://github.com/Yemasthui/basicBot-customization)!!!
+==============================================================================================
 
-You can choose to instantiate the instance both sync or async.
+IMPORTANT
+---------
 
-**Sync**
-```javascript
-var PlugAPI = require('plugapi');
+__basicBot has been updated to work under plug's update. There may still be bugs and functionality is not guaranteed.__
 
-var bot = new PlugAPI({
-    "email": "",
-    "password": ""
-});
-bot.connect('roomslug'); // The part after https://plug.dj
+__Make sure to update your bookmark, as the link has changed recently!!!__
 
-bot.on('roomJoin', function(room) {
-    console.log("Joined " + room);
-});
-```
+__Important changes in version 2.x.x:__
 
-**Async**
-```javascript
-var PlugAPI = require('plugapi');
+- Now should be fully compatible with Firefox.
+- You can now change the bot's name, no need to make a fork to change it anymore. Available under custom settings as "botName".
+- The bot's variable is now exposed outside of the script. You can access it as the variable "bot" in the console. This should allow for secondary scripts extending the bot without the need to fork and lose support on its basis.
+Be careful when extending it to make sure commands or features interact properly with the rest of them.
+An example script to extend the bot is provided under exampleExtension.js. Please do not fork this repository to just change that file. Details of how to use are provided inside.
+This is NOT needed to run the bot as it is provided, only if you want to add functionality.
+- Command checking has been reworked to facilitate adding commands through secondary scripts as explained above.
+- __There is now support for custom chat messages. This means you can use your own custom wording or translate it into your own language.__
 
-new PlugAPI({
-    "email": "",
-    "password": ""
-}, function(bot) {
-    bot.connect('roomslug'); // The part after https://plug.dj
-    
-    bot.on('roomJoin', function(room) {
-        console.log("Joined " + room);
-    });
-});
-```
+Usage
+-----
 
-## Examples
-Here are some bots using this API.
+Bookmark the following code. To run the bot, run the bookmark.
 
-| Botname                                              | Room                                                            |
-| ---------------------------------------------------- | --------------------------------------------------------------- |                                           
-| AuntJackie                                           | [Mix-N-Mash](https://plug.dj/mix-n-mash-2)                      |
-| [BeavisBot](https://github.com/AvatarKava/BeavisBot) | [I <3 the 80's and 90's](https://plug.dj/i-the-80-s-and-90-s-1) |
-| -DnB-                                                | [Drum & Bass](https://plug.dj/drum-bass)                        |
-| FlavorBar                                            | [Flavorz](https://plug.dj/flavorz)                              |
-| FoxBot                                               | [Approaching Nirvana](https://plug.dj/approachingnirvana)       |
+`javascript:(function(){$.getScript('https://rawgit.com/Yemasthui/basicBot/master/basicBot.js');})();`
 
-Have a bot that uses the API? Let me know!
+If this does not work, go to https://raw.githubusercontent.com/Yemasthui/basicBot/master/basicBot.js and copy paste its content into your console (accessible in chrome by pressing f12) when on plug.dj in your community.
 
-## EventListener
-You can listen on essentially any event that plug emits.
-```javascript
-// basic chat handler to show incoming chats formatted nicely
-bot.on('chat', function(data) {
-    if (data.type == 'emote')
-        console.log(data.from + data.message);
-    else
-        console.log(data.from + "> " + data.message);
-});
-```
+###Commands###
 
-Here's an example for automatic reconnecting on errors / close events!
-```javascript
-var reconnect = function() { bot.connect(ROOM); };
+These can be found in [the commands file](https://github.com/Yemasthui/basicBot/blob/master/commands.md).
 
-bot.on('close', reconnect);
-bot.on('error', reconnect);
-```
+###Blacklists###
+Examples of blacklists can be found in [the customization repository](https://github.com/Yemasthui/basicBot-customization/tree/master/blacklists).
+You can add blacklists in the settings of the bot via the methods given in that same repository. See below for more information.
 
-## Events
+###Extending functionality and custom default settings###
 
-Read about some of the events on the [wiki](https://github.com/TATDK/plugapi/wiki/events).
+basicBot can be customized to fit your needs. Please refer to [the customization repository](https://github.com/Yemasthui/basicBot-customization) for more info.
+Please do not try to if you are not confident in your javascript capabilities.
 
-## Actions
 
-Read about the actions on the [wiki](https://github.com/TATDK/plugapi/wiki/actions).
+###Translations###
 
-## Contribute
-1. Clone repository to empty folder.
-2. Cd to the repository.
-3. Run `npm install` to set up the environment.
-4. Edit your code.
-5. Run `grunt` to compile the code and test.
-6. After it's bug free, you may submit it as a Pull Request to the main repo.
+Official translations will be supported. Available ones can be found under [the language folder](https://github.com/Yemasthui/basicBot/blob/master/lang/langIndex.json). You can set a language in the room settings.
+You can use your own translation or wording by translating the values of in [the English pack](https://github.com/Yemasthui/basicBot/blob/master/lang/en.json) and uploading it to a public hosting service. Put the link into your custom room settings, under chatLink.
 
-## Misc
+__When translating the chat messages, please not that it is a json format, meaning it is structured as ```"key":"value"```, please only translate the "value" parts, and leave anything between %% (eg. %%NAME%%) as is, they are variables that get filled in by the bot.__
 
-#### Multi line chat
-Since Plug.dj cuts off chat messages at 250 characters, you can choose to have your bot split up chat messages into multiple lines:
 
-```javascript
-var bot = new PlugAPI(auth);
-bot.multiLine = true; // Set to true to enable multi line chat. Default is false
-bot.multiLineLimit = 5; // Set to the maximum number of lines the bot should split messages up into. Any text beyond this number will just be omitted. Default is 5.
-```
+Credits
+-------
 
-#### TCP Server
-You can start up a TCP server the bot will listen to, for remote administration
+I would like to thank the following people:
 
-Example:
-```javascript
-    bot.tcpListen(6666, 'localhost');
-    bot.on('tcpConnect', function(socket) {
-        // executed when someone telnets into localhost port 6666
-    });
+- Fungus: His Tastybot has been a source of inspiration for most of the features, and his help with coding problems has been invaluable to make this bot.
+- TAT, Origin and other Litebot contributors: Their Litebot has inspired features like Roulette.
+- Henchman: Never knew this undertaking would give me a friend too.
 
-    bot.on('tcpMessage', function(socket, msg) {
-        // Use socket.write, for example, to send output back to the telnet session
-        // 'msg' is whatever was entered by the user in the telnet session
-    });
-```
+|Language | Translator|
+|:------:|:---------:|
+|Portuguese|[Motel Bible](https://github.com/motelbible)|
+|French|[NDA](https://github.com/NDAthereal)|
+
+
+Copyright
+---------
+
+Copyright &copy; 2014 Yemasthui
+
+Modifications (including forks) of the code to fit personal needs are allowed only for personal use and should refer back to the original source.
+This software is not for profit, any extension, or unauthorised person providing this software is not authorised to be in a position of any monetary gain from this use of this software. Any and all money gained under the use of the software (which includes donations) must be passed on to the original author.
+
+
+Disclaimer
+----------
+
+This bot is developed independently. Changes may be made without notice. There is no guarantee for the perfect functioning.
+Plug.dj admins have the right to request changes. 
+By using this chatbot you agree to not use it for violating plug.dj's Terms of Service. 
+You also agree not to alter the bot's code. Any requests for changes can be requested via email, through github or via plug.dj.
