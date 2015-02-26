@@ -54,7 +54,7 @@
     var loadChat = function (cb) {
         if (!cb) cb = function () {
         };
-        $.get("https://rawgit.com/Yemasthui/mammyBot/master/lang/langIndex.json", function (json) {
+        $.get("https://rawgit.com/penash42/MammyBot/master/lang/langIndex.json", function (json) {
             var link = mammyBot.chatLink;
             if (json !== null && typeof json !== "undefined") {
                 langIndex = json;
@@ -183,9 +183,9 @@
         status: false,
         name: "mammyBot",
         loggedInID: null,
-        scriptLink: "https://rawgit.com/Yemasthui/mammyBot/master/mammyBot.js",
+        scriptLink: "https://rawgit.com/penash42/MammyBot/master/mammyBot.js",
         cmdLink: "http://git.io/245Ppg",
-        chatLink: "https://rawgit.com/Yemasthui/mammyBot/master/lang/en.json",
+        chatLink: "https://rawgit.com/penash42/MammyBot/master/lang/en.json",
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
@@ -193,7 +193,7 @@
         settings: {
             botName: "mammyBot",
             language: "english",
-            chatLink: "https://rawgit.com/Yemasthui/mammyBot/master/lang/en.json",
+            chatLink: "https://rawgit.com/penash42/MammyBot/master/lang/en.json",
             startupCap: 1, // 1-200
             startupVolume: 0, // 0-100
             startupEmoji: false, // true or false
@@ -243,8 +243,8 @@
             songstats: true,
             commandLiteral: "!",
             blacklists: {
-                NSFW: "https://rawgit.com/Yemasthui/mammyBot-customization/master/blacklists/ExampleNSFWlist.json",
-                OP: "https://rawgit.com/Yemasthui/mammyBot-customization/master/blacklists/ExampleOPlist.json"
+                NSFW: "https://rawgit.com/penash42/MammyBot-customization/master/blacklists/ExampleNSFWlist.json",
+                OP: "https://rawgit.com/penash42/MammyBot-customization/master/blacklists/ExampleOPlist.json"
             }
         },
         room: {
