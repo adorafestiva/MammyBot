@@ -179,7 +179,7 @@
     var botCreatorIDs = ["3851534", "3934992", "4105209"];
 
     var mammyBot = {
-        version: "1.0.1",
+        version: "1.0.4",
         status: false,
         name: "mammyBot",
         loggedInID: null,
