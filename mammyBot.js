@@ -179,12 +179,12 @@
     var botCreatorIDs = ["3851534", "3934992", "4105209"];
 
     var mammyBot = {
-        version: "2.2.1",
+        version: "1.0.1",
         status: false,
         name: "mammyBot",
         loggedInID: null,
         scriptLink: "https://rawgit.com/penash42/MammyBot/master/mammyBot.js",
-        cmdLink: "http://git.io/245Ppg",
+        cmdLink: "https://rawgit.com/penash42/MammyBot/master/commands.md",
         chatLink: "https://rawgit.com/penash42/MammyBot/master/lang/en.json",
         chat: null,
         loadChat: loadChat,
