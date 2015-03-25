@@ -222,6 +222,7 @@
                 ["mix", "You played a mix, which is against the rules. "],
                 ["sound", "The song you played had bad sound quality or no sound. "],
                 ["nsfw", "The song you contained was NSFW (image or sound). "],
+                ["awful", "Absolutely not.  No way."],
                 ["unavailable", "The song you played was not available for some users. "]
             ],
             afkpositionCheck: 15,
@@ -243,8 +244,9 @@
             songstats: true,
             commandLiteral: "!",
             blacklists: {
-                NSFW: "https://rawgit.com/penash42/MammyBot-customization/master/blacklists/ExampleNSFWlist.json",
-                OP: "https://rawgit.com/penash42/MammyBot-customization/master/blacklists/ExampleOPlist.json"
+                NSFW: "https://rawgit.com/penash42/MammyBot-customization/master/blacklists/NSFWlist.json",
+                OP: "https://rawgit.com/penash42/MammyBot-customization/master/blacklists/OPlist.json"
+                AWFUL: "https://rawgit.com/penash42/MammyBot-customization/master/blacklists/Awful.json"
             }
         },
         room: {
