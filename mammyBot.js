@@ -245,7 +245,7 @@
             commandLiteral: "!",
             blacklists: {
                 NSFW: "https://rawgit.com/penash42/MammyBot-customization/master/blacklists/NSFWlist.json",
-                OP: "https://rawgit.com/penash42/MammyBot-customization/master/blacklists/OPlist.json"
+                OP: "https://rawgit.com/penash42/MammyBot-customization/master/blacklists/OPlist.json",
                 AWFUL: "https://rawgit.com/penash42/MammyBot-customization/master/blacklists/Awful.json"
             }
         },
