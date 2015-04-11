@@ -229,7 +229,7 @@
             afkRankCheck: "ambassador",
             motdEnabled: true,
             motdInterval: 5,
-            motd: "Temporary Message of the Day",
+            motd: "Remember to hug a quaggan!",
             filterChat: true,
             etaRestriction: false,
             welcome: true,
