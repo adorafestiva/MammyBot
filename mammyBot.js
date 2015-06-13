@@ -164,6 +164,7 @@
         loggedInID: null,
         scriptLink: "https://rawgit.com/penash42/MammyBot/master/mammyBot.js",
         cmdLink: "http://git.io/245Ppg",
+        cmdLink: "https://rawgit.com/penash42/MammyBot/master/commands.md",
         chatLink: "https://rawgit.com/penash42/MammyBot/master/lang/en.json",
         chat: null,
         loadChat: loadChat,
