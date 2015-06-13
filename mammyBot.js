@@ -120,27 +120,6 @@
                 API.chatLog(mammyBot.chat.datarestored);
             }
         }
-        /*var json_sett = null;
-        var roominfo = document.getElementById("room-info");
-        info = roominfo.textContent;
-        var ref_bot = "@mammyBot=";
-        var ind_ref = info.indexOf(ref_bot);
-        if (ind_ref > 0) {
-            var link = info.substring(ind_ref + ref_bot.length, info.length);
-            var ind_space = null;
-            if (link.indexOf(" ") < link.indexOf("\n")) ind_space = link.indexOf(" ");
-            else ind_space = link.indexOf("\n");
-            link = link.substring(0, ind_space);
-            $.get(link, function (json) {
-                if (json !== null && typeof json !== "undefined") {
-                    json_sett = JSON.parse(json);
-                    for (var prop in json_sett) {
-                        mammyBot.settings[prop] = json_sett[prop];
-                    }
-                }
-            });
-        }*/
-
     };
 
     String.prototype.splitBetween = function (a, b) {
@@ -179,9 +158,9 @@
     var botCreatorIDs = ["3851534", "3934992", "4105209"];
 
     var mammyBot = {
-        version: "2.2.1",
+        version: "1.0.0",
         status: false,
-        name: "mammyBot",
+        name: "MammyBot",
         loggedInID: null,
         scriptLink: "https://rawgit.com/penash42/MammyBot/master/mammyBot.js",
         cmdLink: "http://git.io/245Ppg",
@@ -191,7 +170,7 @@
         retrieveSettings: retrieveSettings,
         retrieveFromStorage: retrieveFromStorage,
         settings: {
-            botName: "mammyBot",
+            botName: "MammyBot",
             language: "english",
             chatLink: "https://rawgit.com/penash42/MammyBot/master/lang/en.json",
             startupCap: 1, // 1-200
@@ -2834,15 +2813,6 @@
                     else {
                         var msg = chat.message;
                         var permFrom = mammyBot.userUtilities.getPermission(chat.uid);
-                        /**
-                         if (msg.indexOf('@') === -1 && msg.indexOf('all') !== -1) {
-                            if (permFrom > 2) {
-                                mammyBot.room.mutedUsers = [];
-                                return API.sendChat(subChat(mammyBot.chat.unmutedeveryone, {name: chat.un}));
-                            }
-                            else return API.sendChat(subChat(mammyBot.chat.unmuteeveryonerank, {name: chat.un}));
-                        }
-                         **/
                         var from = chat.un;
                         var name = msg.substr(cmd.length + 2);
 
@@ -2852,21 +2822,6 @@
 
                         var permUser = mammyBot.userUtilities.getPermission(user.id);
                         if (permFrom > permUser) {
-                            /*
-                             var muted = mammyBot.room.mutedUsers;
-                             var wasMuted = false;
-                             var indexMuted = -1;
-                             for (var i = 0; i < muted.length; i++) {
-                             if (muted[i] === user.id) {
-                             indexMuted = i;
-                             wasMuted = true;
-                             }
-
-                             }
-                             if (!wasMuted) return API.sendChat(subChat(mammyBot.chat.notmuted, {name: chat.un}));
-                             mammyBot.room.mutedUsers.splice(indexMuted);
-                             API.sendChat(subChat(mammyBot.chat.unmuted, {name: chat.un, username: name}));
-                             */
                             try {
                                 API.moderateUnmuteUser(user.id);
                                 API.sendChat(subChat(mammyBot.chat.unmuted, {name: chat.un, username: name}));
@@ -2969,20 +2924,6 @@
                     else {
                         if (typeof mammyBot.settings.website === "string")
                             API.sendChat(subChat(mammyBot.chat.website, {link: mammyBot.settings.website}));
-                    }
-                }
-            },
-
-            youtubeCommand: {
-                command: 'youtube',
-                rank: 'user',
-                type: 'exact',
-                functionality: function (chat, cmd) {
-                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                    if (!mammyBot.commands.executable(this.rank, chat)) return void (0);
-                    else {
-                        if (typeof mammyBot.settings.youtubeLink === "string")
-                            API.sendChat(subChat(mammyBot.chat.youtube, {name: chat.un, link: mammyBot.settings.youtubeLink}));
                     }
                 }
             }
