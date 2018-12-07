@@ -1,5 +1,5 @@
 {
-    "english": "https://rawgit.com/penash42/MammyBot/master/lang/en.json",
-    "portuguese": "https://rawgit.com/penash42/MammyBot/master/lang/pt.json",
-    "french": "https://rawgit.com/penash42/MammyBot/master/lang/fr.json"
+    "english": "https://cdn.jsdelivr.net/gh/penash42/MammyBot/lang/en.json",
+    "portuguese": "https://cdn.jsdelivr.net/gh/penash42/MammyBot/lang/pt.json",
+    "french": "https://cdn.jsdelivr.net/gh/penash42/MammyBot/lang/fr.json"
 }
