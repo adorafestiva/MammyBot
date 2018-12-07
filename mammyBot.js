@@ -54,7 +54,7 @@
     var loadChat = function (cb) {
         if (!cb) cb = function () {
         };
-        $.get("https://rawgit.com/penash42/MammyBot/master/lang/langIndex.json", function (json) {
+        $.get("https://cdn.jsdelivr.net/gh/penash42/MammyBot/lang/langIndex.json", function (json) {
             var link = mammyBot.chatLink;
             if (json !== null && typeof json !== "undefined") {
                 langIndex = json;
@@ -162,10 +162,10 @@
         status: false,
         name: "MammyBot",
         loggedInID: null,
-        scriptLink: "https://rawgit.com/penash42/MammyBot/master/mammyBot.js",
+        scriptLink: "https://cdn.jsdelivr.net/gh/penash42/MammyBot/mammyBot.js",
         cmdLink: "http://git.io/245Ppg",
-        cmdLink: "https://rawgit.com/penash42/MammyBot/master/commands.md",
-        chatLink: "https://rawgit.com/penash42/MammyBot/master/lang/en.json",
+        cmdLink: "https://cdn.jsdelivr.net/gh/penash42/MammyBot/commands.md",
+        chatLink: "https://cdn.jsdelivr.net/gh/penash42/MammyBot/lang/en.json",
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
@@ -173,7 +173,7 @@
         settings: {
             botName: "MammyBot",
             language: "english",
-            chatLink: "https://rawgit.com/penash42/MammyBot/master/lang/en.json",
+            chatLink: "https://cdn.jsdelivr.net/gh/penash42/MammyBot/lang/en.json",
             startupCap: 1, // 1-200
             startupVolume: 0, // 0-100
             startupEmoji: false, // true or false
